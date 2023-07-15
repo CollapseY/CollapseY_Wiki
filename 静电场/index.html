@@ -1,0 +1,967 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://collapsey.github.io/CollapseY_Wiki/%E9%9D%99%E7%94%B5%E5%9C%BA/">
+      
+      
+        <link rel="prev" href="../%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E5%9F%BA%E7%A1%80/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>静电场 - CollapseY Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="CollapseY Wiki" class="md-header__button md-logo" aria-label="CollapseY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CollapseY Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              静电场
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CollapseY Wiki" class="md-nav__button md-logo" aria-label="CollapseY Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    CollapseY Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%88%9A%E4%BD%93%E5%AE%9A%E8%BD%B4%E8%BD%AC%E5%8A%A8/" class="md-nav__link">
+        刚体定轴转动
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%8B%AD%E4%B9%89%E7%9B%B8%E5%AF%B9%E8%AE%BA/" class="md-nav__link">
+        狭义相对论
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%94%B5%E7%A3%81%E6%84%9F%E5%BA%94%E5%92%8C%E7%94%B5%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        电磁感应和电磁场
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%A8%B3%E6%81%92%E7%A3%81%E5%9C%BA/" class="md-nav__link">
+        稳恒磁场
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B4%A8%E7%82%B9%E5%8A%A8%E5%8A%9B%E5%AD%A6/" class="md-nav__link">
+        质点动力学
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%B4%A8%E7%82%B9%E8%BF%90%E5%8A%A8%E5%AD%A6/" class="md-nav__link">
+        质点运动学
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%87%8F%E5%AD%90%E7%89%A9%E7%90%86%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        量子物理基础
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          静电场
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        静电场
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    均匀带电直线-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    均匀带电细圆环-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    均匀带电圆盘-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_3" class="md-nav__link">
+    均匀带电球面-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_4" class="md-nav__link">
+    均匀带电球体-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_5" class="md-nav__link">
+    无限长均匀带电细棒-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_6" class="md-nav__link">
+    无限长均匀带电圆柱体-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_7" class="md-nav__link">
+    无限大均匀带电平面-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_8" class="md-nav__link">
+    电偶极子-电势
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_9" class="md-nav__link">
+    均匀带电细圆环-电势
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_10" class="md-nav__link">
+    均匀带电球面-电势
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_11" class="md-nav__link">
+    无限长带电直线-电势
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    电荷 库仑定律
+  </a>
+  
+    <nav class="md-nav" aria-label="电荷 库仑定律">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    电荷
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    库仑定律
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    电场 电场强度
+  </a>
+  
+    <nav class="md-nav" aria-label="电场 电场强度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    电场强度
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    电通量 高斯定理
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    均匀带电直线-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    均匀带电细圆环-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    均匀带电圆盘-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_3" class="md-nav__link">
+    均匀带电球面-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_4" class="md-nav__link">
+    均匀带电球体-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_5" class="md-nav__link">
+    无限长均匀带电细棒-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_6" class="md-nav__link">
+    无限长均匀带电圆柱体-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_7" class="md-nav__link">
+    无限大均匀带电平面-电场
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_8" class="md-nav__link">
+    电偶极子-电势
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_9" class="md-nav__link">
+    均匀带电细圆环-电势
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_10" class="md-nav__link">
+    均匀带电球面-电势
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-_11" class="md-nav__link">
+    无限长带电直线-电势
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    电荷 库仑定律
+  </a>
+  
+    <nav class="md-nav" aria-label="电荷 库仑定律">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    电荷
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    库仑定律
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    电场 电场强度
+  </a>
+  
+    <nav class="md-nav" aria-label="电场 电场强度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    电场强度
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    电通量 高斯定理
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>静电场</h1>
+
+<h3 id="-">均匀带电直线-电场</h3>
+<blockquote>
+<p>真空中有一均匀带电直线，长为$L$，线电荷密度为$\lambda$，设场点$P$到带点直线的垂直距离为$x$，求$P$的场强</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+dq &amp;= \lambda \cdot dy \\
+dE &amp;= \frac{\lambda}{4 \pi \varepsilon_0(x^2 + y^2)}\cdot dy \\
+dE_x &amp;= \frac{\lambda dy}{4 \pi \varepsilon_0(x^2 + y^2)}\cdot \frac{x}{\sqrt{x^2 + y^2}} \\
+&amp;= \frac{\lambda x}{4 \pi \varepsilon_0(x^2 + y^2)^\frac{3}{2}}\cdot dy\\
+E_x &amp;= 2\int_{0}^{\frac{L}{2}}\frac{\lambda x}{4 \pi \varepsilon_0(x^2 + y^2)^\frac{3}{2}}\cdot dy\\
+设\,\,\,\,y &amp;= xtan\theta \,\,\,则 \\
+E_x &amp;= 2\int_{0}^{arctan\frac{L}{2x}}\frac{\lambda x}{4 \pi \varepsilon_0(x^2 sec^2\theta)^\frac{3}{2}}\cdot d(xtan\theta)\\
+&amp;= 2\int_{0}^{arctan\frac{L}{2x}}\frac{\lambda x^2 sec^2\theta}{4 \pi \varepsilon_0(x sec\theta)^3}\cdot d\theta\\
+&amp;= 2\int_{0}^{arctan\frac{L}{2x}}\frac{\lambda}{4 \pi \varepsilon_0x sec\theta}\cdot d\theta\\
+&amp;= \frac{\lambda}{2\pi\varepsilon_0 x}\int_{0}^{arctan\frac{L}{2x}}\frac{1}{sec\theta}\cdot d\theta\\
+&amp;= \frac{\lambda}{2\pi\varepsilon_0 x}sin(arctan\frac{L}{2x})\\
+&amp;= \frac{\lambda}{2\pi\varepsilon_0 x}\cdot \frac{L}{\sqrt{L^2 + 4x^2}} \\
+\end{aligned} 
+$$</p>
+<ul>
+<li>
+<p>当带电直线无限长即$L &gt;&gt; x$时，$E_p = \frac{\lambda}{2\pi\varepsilon_0 x}$ </p>
+</li>
+<li>
+<p>当$L &lt;&lt; x$时，$E_p = \frac{\lambda L}{4 \pi \varepsilon_0 x^2} = \frac{q}{4 \pi \varepsilon_0 x^2}$ </p>
+</li>
+</ul>
+<hr />
+<h3 id="-_1">均匀带电细圆环-电场</h3>
+<blockquote>
+<p>一均匀带电细圆环，半径为$R$,所带总电量为$q$（正电），圆环轴线上场点$P$到圆心的距离为$x$，求$P$的场强</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+dq &amp;= \frac{q}{2 \pi R}dl \\
+设\,\,\,\lambda &amp;= \frac{q}{2\pi R} \\
+dE &amp;= \frac{\lambda}{4\pi \varepsilon_0(R^2 + x^2)} \cdot dl \\
+dE_x &amp;= \frac{x\lambda}{4\pi \varepsilon_0(R^2 + x^2)^\frac{3}{2}} \cdot dl \\
+E_x &amp;= \int_0^{2\pi R}\frac{x\lambda}{4\pi \varepsilon_0(R^2 + x ^ 2) ^ \frac{3}{2}} \cdot dl\\
+&amp;= \frac{Rx\lambda}{2 \varepsilon_0(R^2 + x^2) ^ \frac{3}{2}} \\
+&amp;= \frac{qx}{4\pi \varepsilon_0(R^2 + x^2)^\frac{3}{2}} 
+\end{aligned}
+$$</p>
+<ul>
+<li>
+<p>当$x &lt;&lt; R$时，$E = \frac{qx}{4\pi \varepsilon_0 R^3}$ </p>
+</li>
+<li>
+<p>当$x &gt;&gt; R$时，$E = \frac{q}{4\pi \varepsilon_0 x^2}$ </p>
+</li>
+</ul>
+<hr />
+<h3 id="-_2">均匀带电圆盘-电场</h3>
+<blockquote>
+<p>设一均匀带电圆盘半径为$R$，电荷面密度为$\sigma$，求圆盘轴线上距离圆心$x$处场点$P$的场强</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+E &amp;= \int_0^R\frac{2\pi r \sigma x}{4 \pi \varepsilon_0 (r ^ 2 + x ^ 2) ^ \frac{3}{2}}dr\\
+&amp;= \frac{x\sigma}{2\varepsilon_0} \int_0^R\frac{r}{(r^2 + x^2)^\frac{3}{2}}dr\\
+&amp;= \frac{x\sigma}{4\varepsilon_0} \int_0^R\frac{1}{(r^2 + x^2)^\frac{3}{2}}d(r^2)\\
+&amp;= \frac{x\sigma}{4\varepsilon_0} \int_0^R (r^2 + x^2)^{-\frac{3}{2}}d(r^2)\\
+&amp;= \frac{\sigma}{2\varepsilon_0}(1 - \frac{x}{\sqrt{R^2 + x^2}})
+\end{aligned}
+$$</p>
+<ul>
+<li>
+<p>当带电平面无限大即$x &gt;&gt; R$时，$E = \frac{\sigma}{2\varepsilon_0}$ </p>
+</li>
+<li>
+<p>当$x &lt;&lt; R$时，$E = \frac{q}{4 \pi \varepsilon_0 x^2}$ </p>
+</li>
+</ul>
+<blockquote>
+<p>$(R^2 + x^2) ^ {-\frac{1}{2}} = \frac{1}{x}(1 + \frac{R^2}{x^2})^{-\frac{1}{2}} = \frac{1}{x}(1 - \frac{R^2}{2x^2} + ...) \thickapprox \frac{1}{x}(1 - \frac{R^2}{2x^2})$ </p>
+</blockquote>
+<hr />
+<h3 id="-_3">均匀带电球面-电场</h3>
+<blockquote>
+<p>求均匀带电球面的场强分布，已知球面半径为$R$，所带的总电量为$q$（大于0）</p>
+</blockquote>
+<ul>
+<li>$r &gt; R$时</li>
+</ul>
+<p>$$
+\begin{aligned}
+\frac{q}{\varepsilon_0} &amp;= E \cdot 4\pi r^2 \\
+E &amp;= \frac{q}{4\pi \varepsilon_0 r^2}
+\end{aligned}
+$$
+- $r &lt; R$时</p>
+<p>$$
+E = 0
+$$</p>
+<hr />
+<h3 id="-_4">均匀带电球体-电场</h3>
+<blockquote>
+<p>求均匀带电球体的场强分布，已知球体半径为$R$，所带的总电量为$q$（大于0）</p>
+</blockquote>
+<ul>
+<li>$r &gt; R$时</li>
+</ul>
+<p>$$
+\begin{aligned}
+\frac{q}{\varepsilon_0} &amp;= E \cdot 4\pi r^2 \\
+E &amp;= \frac{q}{4\pi \varepsilon_0 r^2}
+\end{aligned}
+$$</p>
+<ul>
+<li>$r &lt; R$时</li>
+</ul>
+<p>$$
+\begin{aligned}
+q^{'} &amp;= \frac{q}{\frac{4}{3}\pi R^3}\cdot \frac{4}{3}\pi r^3 
+= \frac{r^3}{R^3}q \\</p>
+<p>\frac{q^{'}}{\varepsilon_0} &amp;= E \cdot 4\pi r^2 \\
+E &amp;= \frac{q^{'}}{4\pi \varepsilon_0 r^2} = \frac{qr}{4\pi \varepsilon_0 R^3}
+\end{aligned}
+$$</p>
+<hr />
+<h3 id="-_5">无限长均匀带电细棒-电场</h3>
+<blockquote>
+<p>设无限长均匀带电细棒的线电荷密度为$\lambda$（大于0），试求场强分布</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+\frac{l\lambda}{\varepsilon_0} &amp;= E \cdot2\pi rl \\
+E &amp;= \frac{\lambda}{2\pi \varepsilon_0 r}
+\end{aligned}
+$$</p>
+<hr />
+<h3 id="-_6">无限长均匀带电圆柱体-电场</h3>
+<blockquote>
+<p>求一无限长均匀带电圆柱体内外的场强，设圆柱体截面的半径为$a$，体电荷密度为$\rho$ </p>
+</blockquote>
+<ul>
+<li>$r &lt; a$时</li>
+</ul>
+<p>$$
+\begin{aligned}
+\frac{\pi r^2 l \rho}{\varepsilon_0} &amp;= E \cdot 2\pi rl\\
+E &amp;= \frac{r\rho}{2\varepsilon_0}
+\end{aligned}
+$$</p>
+<ul>
+<li>$r &gt; a$时</li>
+</ul>
+<p>$$
+\begin{aligned}
+\frac{\pi a^2 l \rho}{\varepsilon_0} &amp;= E \cdot 2\pi rl\\
+E &amp;= \frac{a^2 \rho}{2\varepsilon_0 r}
+\end{aligned}
+$$</p>
+<hr />
+<h3 id="-_7">无限大均匀带电平面-电场</h3>
+<blockquote>
+<p>求无限大均匀带电平面的电场分布，已知带电平面上面电荷密度为$\sigma$ </p>
+</blockquote>
+<p>$$
+\begin{aligned}
+\frac{\pi r^2 \sigma}{\varepsilon_0} &amp;= 2 \cdot E \cdot \pi r^2\\
+E &amp;= \frac{\sigma}{2\varepsilon_0}
+\end{aligned}
+$$</p>
+<hr />
+<h3 id="-_8">电偶极子-电势</h3>
+<blockquote>
+<p>求电偶极子电场中任一点的电势，已知电偶极子中两点电荷$\pm q$间的距离为$l$</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+U_p = \frac{q}{4\pi \varepsilon_0 r_+} - \frac{q}{4\pi \varepsilon_0 r_-} = \frac{q}{4\pi \varepsilon_0}(\frac{1}{r_+} - \frac{1}{r_-})
+\end{aligned}
+$$</p>
+<p>近似计算</p>
+<p>$$
+U_p \thickapprox \frac{pcos\theta}{4\pi \varepsilon_0 r^2} 
+$$</p>
+<hr />
+<h3 id="-_9">均匀带电细圆环-电势</h3>
+<blockquote>
+<p>一半径为$R$的均匀带电细圆环，所带总电量为$q$（大于0），求圆环轴线上与环心相距为$x$处$P$点的电势</p>
+</blockquote>
+<ul>
+<li>电势定义</li>
+</ul>
+<p>$$
+\begin{aligned}
+E &amp;= \frac{qx}{4\pi \varepsilon_0(R^2 + x^2)^\frac{3}{2}}\\
+U_p &amp;= \int_x^{\infty}\frac{qx}{4 \pi \varepsilon_0(R^2 + x^2)^\frac{3}{2}}dx\\
+&amp;=\int_x^{\infty}\frac{q}{8\pi \varepsilon_0(R^2 + x^2) ^ \frac{3}{2}}d(R^2 + x^2)\\
+&amp;= \frac{q}{4\pi \varepsilon_0\sqrt{R^2 + x^2}}
+\end{aligned}
+$$</p>
+<ul>
+<li>点电荷电势公式 + 电势叠加原理</li>
+</ul>
+<p>$$
+\begin{aligned}
+U_p &amp;= \int_0^{2 \pi R}\frac{\frac{q}{2 \pi R}}{4 \pi \varepsilon_0\sqrt{R^2 + x^2}}dl\\
+&amp;= \frac{q}{4\pi \varepsilon_0\sqrt{R^2 + x^2}}
+\end{aligned}
+$$</p>
+<hr />
+<h3 id="-_10">均匀带电球面-电势</h3>
+<blockquote>
+<p>求均匀带电球面电场中的电势分布，已知球面半径为$R$，所带的总电量为$q$（大于0）</p>
+</blockquote>
+<p>$$
+\begin{aligned}
+E &amp;= \begin{cases} 0 \,\,\,\,\, ,r &lt; R \
+\frac{q}{4\pi \varepsilon_0 r^2} \,\,\,\,\, ,r &gt; R
+\end{cases}
+\end{aligned}
+$$</p>
+<ul>
+<li>$r &lt; R$时</li>
+</ul>
+<p>$$
+\begin{aligned}
+U_p &amp;= \int_r^REdr + \int_R^{\infty}Edr \\
+&amp;= \frac{q}{4\pi \varepsilon_0 R}
+\end{aligned}
+$$</p>
+<ul>
+<li>$r &gt; R$时</li>
+</ul>
+<p>$$
+\begin{aligned}
+U_p &amp;= \int_r^{\infty}Edr \\
+&amp;= \frac{q}{4\pi \varepsilon_0 r}
+\end{aligned}
+$$</p>
+<hr />
+<h3 id="-_11">无限长带电直线-电势</h3>
+<blockquote>
+<p>求电荷线密度为$\lambda$的无限长均匀带电直线电场中的电势分布</p>
+</blockquote>
+<p>由于带电体是无限长的，所以不能选无穷远处作为电势零点，我们选择距离带电直线为$x_0$的$P_0$点为电势零点</p>
+<p>$$
+\begin{aligned}
+U_p &amp;= \int_x^{x_0}\frac{\lambda}{2 \pi \varepsilon_0 x}dx\\
+&amp;= \frac{\lambda}{2\pi \varepsilon_0}ln{\frac{x_0}{x}}
+\end{aligned}
+$$</p>
+<h2 id="_1">电荷 库仑定律</h2>
+<h3 id="_2">电荷</h3>
+<p>在一个与外界没有电荷交换的系统内，无论进行怎样的物理过程，过程中电荷总数（即正负电荷的代数和）保持不变，这就是电荷守恒定律</p>
+<p>一个电荷的电量与它的运动状态无关，也就是说与观测者所选的参照系无关，电荷的这一特性称为电荷的不变性</p>
+<h3 id="_3">库仑定律</h3>
+<p>库仑定律：在<strong>真空</strong>中，两个<strong>静止点电荷</strong>之间存在相互作用力，其大小与这两个点电荷的电量$q_1$和$q_2$的乘积成正比，与它们之间距离$r$的平方成反比，作用力的方向沿着这两个点电荷的连线，同号电荷相斥，异号电荷相吸
+$$
+\vec{F} = \frac{q_1q_2}{4\pi \varepsilon_0 r^2} {\hat{r}}
+$$
+$\hat{r}$是$r$方向上的单位向量，$\varepsilon_0 = 8.85 \times 10^{-12} C^2\cdot N^{-1} \cdot m^{-2}$，称为真空中的电容率</p>
+<h2 id="_4">电场 电场强度</h2>
+<h3 id="_5">电场强度</h3>
+<p>$$
+\vec{E} = \frac{\vec{F}}{q_0}
+$$</p>
+<p>电场的性质仅由产生电场的电荷（场源电荷）的分布决定，与是否引入试验电荷无关</p>
+<p>电场线<strong>不相交</strong>、<strong>不闭合</strong></p>
+<h2 id="_6">电通量 高斯定理</h2>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
