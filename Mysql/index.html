@@ -1,0 +1,928 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://collapsey.github.io/CollapseY_Wiki/Mysql/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Mysql - COLLAPSEY   WIKI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,300i,400,400i,700,700i%7CSource+Code+Pro:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Code Pro";--md-code-font:"Source Code Pro"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="COLLAPSEY   WIKI" class="md-header__button md-logo" aria-label="COLLAPSEY   WIKI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            COLLAPSEY   WIKI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Mysql
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Mysql
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="COLLAPSEY   WIKI" class="md-nav__button md-logo" aria-label="COLLAPSEY   WIKI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    COLLAPSEY   WIKI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Mysql
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Mysql
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、准备工作
+  </a>
+  
+    <nav class="md-nav" aria-label="一、准备工作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    环境配置
+  </a>
+  
+    <nav class="md-nav" aria-label="环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    使用 apt 包管理器安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    检验是否成功安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    启动 mysql 服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    用户设置
+  </a>
+  
+    <nav class="md-nav" aria-label="用户设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#admin" class="md-nav__link">
+    创建一个 admin 用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    权限分配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    用户登录
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    二、SQL入门
+  </a>
+  
+    <nav class="md-nav" aria-label="二、SQL入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    SQL语言特性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    数值类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    字符串类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    日期/时间类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    主键，外键与索引
+  </a>
+  
+    <nav class="md-nav" aria-label="主键，外键与索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    主键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    外键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    数据库和数据表操作
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库和数据表操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    CREATE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一、准备工作
+  </a>
+  
+    <nav class="md-nav" aria-label="一、准备工作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    环境配置
+  </a>
+  
+    <nav class="md-nav" aria-label="环境配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    使用 apt 包管理器安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    检验是否成功安装
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    启动 mysql 服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    用户设置
+  </a>
+  
+    <nav class="md-nav" aria-label="用户设置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#admin" class="md-nav__link">
+    创建一个 admin 用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    权限分配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    用户登录
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    二、SQL入门
+  </a>
+  
+    <nav class="md-nav" aria-label="二、SQL入门">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql_1" class="md-nav__link">
+    SQL语言特性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    数据类型
+  </a>
+  
+    <nav class="md-nav" aria-label="数据类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    数值类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    字符串类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    日期/时间类型
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    主键，外键与索引
+  </a>
+  
+    <nav class="md-nav" aria-label="主键，外键与索引">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    主键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    外键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    索引
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    数据库和数据表操作
+  </a>
+  
+    <nav class="md-nav" aria-label="数据库和数据表操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create" class="md-nav__link">
+    CREATE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Mysql</h1>
+
+<h2 id="_1">一、准备工作</h2>
+<h3 id="_2">环境配置</h3>
+<blockquote>
+<p>基于Ubuntu（WLS2）开发环境</p>
+</blockquote>
+<h4 id="apt">使用 apt 包管理器安装</h4>
+<pre><code class="language-shell">sudo apt update
+sudo apt upgrade 
+sudo apt install mysql-server 
+</code></pre>
+<h4 id="_3">检验是否成功安装</h4>
+<pre><code class="language-shell">mysql --version
+</code></pre>
+<h4 id="mysql">启动 mysql 服务</h4>
+<pre><code class="language-shell">service mysql start # 以 root 用户
+</code></pre>
+<h3 id="_4">用户设置</h3>
+<h4 id="admin">创建一个 <code>admin</code> 用户</h4>
+<pre><code class="language-shell">sudo mysql          # 以 root 用户登录
+# or
+mysql -u root -p    # 以 root 用户登录
+</code></pre>
+<pre><code class="language-mysql">mysql&gt; CREATE USER 'admin'@'%' IDENTIFIED BY '123456';
+Query OK, 0 rows affected (0.02 sec)
+</code></pre>
+<p>表示允许用户 <code>admin</code> 从任意 IP 以密码 <code>123456</code> 登录</p>
+<h4 id="_5">权限分配</h4>
+<p>新创建的用户是没有任何权限的（<code>USAGE</code> 表示没有任何权限），可以使用 <code>SHOW GRANTS</code> 进行查询</p>
+<pre><code class="language-mysql">mysql&gt; SHOW GRANTS FOR 'admin'@'%';
++-----------------------------------+
+| Grants for admin@%                |
++-----------------------------------+
+| GRANT USAGE ON *.* TO `admin`@`%` |
++-----------------------------------+
+1 row in set (0.00 sec)
+</code></pre>
+<p>为 <code>admin</code> 添加所有数据库和数据表的所有权限</p>
+<pre><code class="language-mysql">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
+Query OK, 0 rows affected (0.01 sec)
+</code></pre>
+<h3 id="_6">用户登录</h3>
+<p>使用 <code>exit</code> 语句或者使用 <code>Ctrl-D</code> 即可退出登录</p>
+<pre><code class="language-mysql">mysql&gt; exit
+Bye
+</code></pre>
+<p>用命令行登录 <code>admin</code></p>
+<pre><code class="language-mysql">mysql -u admin -p   # 之后输入密码即可登录
+</code></pre>
+<p>或者使用</p>
+<pre><code class="language-mysql">mysql -u admin -p123456
+</code></pre>
+<p>也可直接登录，但是会在 shell 的历史记录中留下密码的明文记录，因此不推荐在服务器中使用</p>
+<pre><code>cat .bash_history   # .zsh_history 等
+</code></pre>
+<h2 id="sql">二、SQL入门</h2>
+<h3 id="sql_1">SQL语言特性</h3>
+<ul>
+<li>
+<p>脚本语言（类似 Python）：可以交互执行也可以事先写好后一次性执行</p>
+</li>
+<li>
+<p>弱类型：如</p>
+</li>
+</ul>
+<pre><code class="language-mysql">mysql&gt; SELECT 1 + &quot;1&quot;;
++---------+
+| 1 + &quot;1&quot; |
++---------+
+|       2 |
++---------+
+1 row in set (0.00 sec)
+</code></pre>
+<ul>
+<li>关键字不区分大小写；而数据库名，表名，字段名等区分大小写：如</li>
+</ul>
+<pre><code class="language-mysql">mysql&gt; cReAtE dAtAbAsE hello;
+Query OK, 1 row affected (0.03 sec)
+
+mysql&gt; cReAtE dAtAbAsE Hello;
+Query OK, 1 row affected (0.02 sec)
+</code></pre>
+<p>分别创建了 <code>hello</code> 和 <code>Hello</code> <strong>两个</strong>数据库。</p>
+<p>当出现数据库名，表名，字段名与关键字重复时，需要使用反引号`将其包裹</p>
+<p>为了美观与可读性，建议关键字统一使用大写表示</p>
+<h3 id="_7">数据类型</h3>
+<p>MySQL 支持的类型大致可以分为数值、日期/时间和字符串三类，在此仅列举常用的类型</p>
+<h4 id="_8">数值类型</h4>
+<ul>
+<li>
+<p><strong>INT</strong>：4 bytes，$[−2^{31}, 2^{31}−1]$</p>
+</li>
+<li>
+<p><strong>BIGINT</strong>：8 bytes，$[−2^{63}, 2^{63}−1]$</p>
+</li>
+<li>
+<p><strong>FLOAT</strong>：4 bytes</p>
+</li>
+<li>
+<p><strong>DOUBLE</strong>：8 bytes</p>
+</li>
+</ul>
+<p>可使用 <code>UNSIGEND</code> 关键字来表示无符号类型，以表示更大的范围，如</p>
+<pre><code class="language-mysql">CREATE TABLE your_table (
+    your_column INT UNSIGNED
+);
+</code></pre>
+<h4 id="_9">字符串类型</h4>
+<ul>
+<li>
+<p><strong>CHAR</strong>：定长字符串，256 bytes，长度取值范围为 $[0,255]$ 个字符</p>
+</li>
+<li>
+<p><strong>VARCHAR</strong>：变长字符串，长度取值范围为 $[0,65535]$ 个字符</p>
+</li>
+</ul>
+<h4 id="_10">日期/时间类型</h4>
+<ul>
+<li><strong>TIMESTAMP</strong>：时间戳，形式为 <code>YYYY-MM-DD hh:mm:ss</code>，4 bytes，范围为 $[1970−01−0100:00:01 UTC,2038−01−1903:14:07 UTC]$，常见的写法有</li>
+</ul>
+<pre><code class="language-mysql">CREATE TABLE your_table (
+    ...
+    event_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+</code></pre>
+<p>特别的，<code>NULL</code> 表示空值（与 <code>0</code> 和 <code>''</code> 作区分）</p>
+<p>但字段在设置时应尽量避免允许为 <code>NULL</code>，这样可以简化查询条件，加快查询速度，也利于应用程序读取数据后无需判断其是否为 <code>NULL</code></p>
+<h3 id="_11">主键，外键与索引</h3>
+<h4 id="_12">主键</h4>
+<p>关系型数据库要求同一张数据表中的任意两条记录不得重复，要求能通过某字段唯一区分出不同的记录，该字段称为主键。常见的可作为主键字段的类型有</p>
+<ul>
+<li>自增整数类型</li>
+<li>全局唯一 GUID 类型：使用 GUID 算法生成一个全局唯一的字符串</li>
+</ul>
+<p>注意，尽管只要我们保证某一字段不重复，便可以将其作为主键，但我们不推荐将业务相关的字段作为主键，这主要时防止当其需要变更时出现关系上的错误</p>
+<p>例如，若我们将课程的课程号 <code>cid</code> 作为主键，尽管其是唯一的，但假如课程的课程号发生改变，或者其位数需要增加，那么在修改时我们还必须同时修改 <code>Association</code> 表中的内容，并且要确保没有重复的值或者确保在迁移数据时处理了重复值的情况</p>
+<p>除去将单一字段作为主键外，我们还可以使用<strong>联合主键</strong>，即用多个字段同时唯一确定某一条记录</p>
+<h4 id="_13">外键</h4>
+<p>与主键类似，外键也是一种约束性质，在 <code>Association</code> 数据表中，<code>student_id</code> 和 <code>course_id</code> 分别外链到 <code>Students</code> 和 <code>Courses</code> 两张数据表中的 <code>id</code> 属性。通过定义外键约束，关系型数据库可以保证无法插入无效的数据，即无法插入在 <code>Students</code> 表或 <code>Courses</code> 表中不存在的 <code>id</code>号</p>
+<p>然而，<strong>外键约束会降低数据库的性能</strong>，所以在应用程序可以保证逻辑正确性的前提下，我们可以不设置外键约束。此时 <code>student_id</code> 和 <code>course_id</code> 只是两个普通的字段，但是其在使用逻辑上起到了外键的作用</p>
+<h4 id="_14">索引</h4>
+<p>在汉语词典中，我们可以按照拼音、笔画、偏旁部首等方式进行索引，通过这些方式进行索引通常可以获得更快的检索速度</p>
+<p>“索引”这一概念对于数据表也是这样。倘若我们为某一个字段建立了索引（为某种方式在词典中建立了目录），那么在通过这一字段进行检索时便通常可以获得更快的查询速度。关系型数据库会自动为主键建立索引，由于主键会保证绝对唯一，因此采用主键索引往往是效率最高的。对于其他字段，当其重复项不多且常常依赖其进行查询时，我们也可以考虑为其创建索引，例如 <code>Studens</code> 表中的 <code>sid</code> 和 <code>Courses</code> 表中的 <code>cid</code></p>
+<p>然而，由于在插入、更新和删除记录时，需要同时修改索引，因此索引会减慢插入、更新和删除记录的速度</p>
+<h3 id="_15">数据库和数据表操作</h3>
+<h4 id="create">CREATE</h4>
+<ul>
+<li>创建新的数据库，然后使用它</li>
+</ul>
+<pre><code class="language-mysql">CREATE DATABASE summer;
+
+USE summer;
+</code></pre>
+<ul>
+<li>创建课程概述中所述问题所需的数据表</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.path", "toc.follow", "navigation.top", "navigation.footer", "search.highlight"], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
