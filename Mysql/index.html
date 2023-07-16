@@ -1064,30 +1064,30 @@ VALUES ('2023000002', 'Bob', 'EE');
 ('2023000003', 'Carol', 'CS'),
 ('2023000004', 'Eve', 'CS');
 </code></pre>
-<blockquote>
+<hr />
 <p>为了我们后续的学习，我们可以插入一些预置</p>
-<p><code>mysql
-mysql&gt; DROP TABLE Association;
+<pre><code class="language-mysql">mysql&gt; DROP TABLE Association;
 mysql&gt; TRUNCATE TABLE Students; -- 清空 Students 数据表，重置自增变量
-mysql&gt; exit;</code></p>
+mysql&gt; exit;
+</code></pre>
 <p>在 shell 中执行</p>
-<p><code>shell
-curl -fsSL https://cloud.tsinghua.edu.cn/f/b8d1f041d9174890bc60/\?dl\=1 -o summer.sql</code></p>
+<pre><code class="language-shell">curl -fsSL https://cloud.tsinghua.edu.cn/f/b8d1f041d9174890bc60/\?dl\=1 -o summer.sql
+</code></pre>
 <p>然后进入 mysql 命令行</p>
-<p><code>mysql
-mysql&gt; USE summer;
-mysql&gt; source &lt;file path&gt;/summer.sql;</code></p>
+<pre><code class="language-mysql">mysql&gt; USE summer;
+mysql&gt; source &lt;file path&gt;/summer.sql;
+</code></pre>
 <p>若执行</p>
-<p><code>mysql
-mysql&gt; SELECT COUNT(*) from Students;
+<pre><code class="language-mysql">mysql&gt; SELECT COUNT(*) from Students;
 +----------+
 | COUNT(*) |
 +----------+
 |       50 |
 +----------+
-1 row in set (0.00 sec)</code></p>
+1 row in set (0.00 sec)
+</code></pre>
 <p>则说明导入成功</p>
-</blockquote>
+<hr />
 <h4 id="select">SELECT</h4>
 <pre><code>SELECT
     [ALL | DISTINCT | DISTINCTROW ]
