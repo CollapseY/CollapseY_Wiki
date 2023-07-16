@@ -478,6 +478,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    UPDATE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    DELETE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    EXPLAIN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql-contraints" class="md-nav__link">
+    SQL Contraints
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -485,6 +513,20 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-injection" class="md-nav__link">
+    三、SQL Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    四、参考资料
+  </a>
   
 </li>
       
@@ -727,6 +769,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    UPDATE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete" class="md-nav__link">
+    DELETE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explain" class="md-nav__link">
+    EXPLAIN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql-contraints" class="md-nav__link">
+    SQL Contraints
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -734,6 +804,20 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql-injection" class="md-nav__link">
+    三、SQL Injection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    四、参考资料
+  </a>
   
 </li>
       
@@ -1261,6 +1345,226 @@ into_option: {
 +-------+---------------+
 13 rows in set (0.00 sec)
 </code></pre>
+<ul>
+<li>对结果指定偏移与范围</li>
+</ul>
+<pre><code class="language-mysql">SELECT sid, name FROM Students ORDER BY sid LIMIT 10;
+</code></pre>
+<p>显示学号最小的 10 位学生</p>
+<pre><code class="language-mysql">SELECT sid, name FROM Students ORDER BY sid LIMIT 30, 10;
+</code></pre>
+<p>表示从第 30 位学生开始，查询 10 条记录</p>
+<ul>
+<li>嵌套在查询中的查询 <code>Sub Query</code></li>
+</ul>
+<p>例如我们希望查询选课超过了平均值的学生的选课记录，可以将查询分为3步</p>
+<p>1、查询学生选课的数量</p>
+<pre><code class="language-mysql">SELECT COUNT(*) cnt FROM Association GROUP BY student_id;
+</code></pre>
+<p>2、对这些数量求平均，其中 <code>q1</code> 是对第一个子查询的别名</p>
+<pre><code class="language-mysql">SELECT AVG(q1.cnt) FROM (
+    SELECT COUNT(*) cnt FROM Association GROUP BY student_id
+) q1;
+</code></pre>
+<p>3、从 <code>Association</code> 表中筛选出相应的记录</p>
+<pre><code class="language-mysql">SELECT student_id, COUNT(*) cnt FROM Association GROUP BY student_id HAVING cnt &gt; (
+    SELECT AVG(q1.cnt) FROM (
+        SELECT COUNT(*) cnt FROM Association GROUP BY student_id
+    ) q1
+);
+</code></pre>
+<p>子查询也可以用在 <code>WHERE</code> 语句中，例如希望查询选课数量排前 10 名学生的全部信息，可以将查询分为 3 步</p>
+<p>1、从 <code>Association</code> 表中查出选课数量排前 10 名的学生的 <code>id</code></p>
+<pre><code class="language-mysql">SELECT student_id, COUNT(*) cnt
+ FROM Association
+ GROUP BY student_id
+ ORDER BY cnt DESC
+ LIMIT 10;
+</code></pre>
+<p>2、从中选出 <code>id</code></p>
+<pre><code class="language-mysql">SELECT student_id FROM (
+ SELECT student_id, COUNT(*) cnt
+        FROM Association
+        GROUP BY student_id
+        ORDER BY cnt DESC
+        LIMIT 10
+) top_s;
+</code></pre>
+<p>3、从 <code>Students</code> 表中查出这些同学的信息</p>
+<pre><code class="language-mysql">SELECT * FROM Students WHERE id in (
+ SELECT top_s.student_id FROM (
+        SELECT student_id, COUNT(*) cnt
+            FROM Association
+            GROUP BY student_id
+            ORDER BY cnt DESC
+            LIMIT 10
+    ) top_s
+);
+</code></pre>
+<ul>
+<li>对多个表的结果按照某些列的约束关系进行拼接</li>
+</ul>
+<p><img alt="img" src="https://summer23.net9.org/images/sql-3.png" /></p>
+<p>例如我们希望查看在选课记录中查看成绩的同时显示学生的名字</p>
+<pre><code class="language-mysql">SELECT Students.name, course_id, grade
+    FROM Students
+    INNER JOIN Association
+    ON Students.id = student_id AND NOT ISNULL(grade);
+</code></pre>
+<p>利用 <code>Sub Query</code> 同时显示课程名和学分，并按学生姓名排序</p>
+<pre><code class="language-mysql">SELECT StuWithCouseID.name student, Courses.title, Courses.credit, StuWithCouseID.grade
+    FROM Courses
+    INNER JOIN (
+        SELECT Students.name, course_id, grade
+            FROM Students
+            INNER JOIN Association
+            ON Students.id = student_id AND NOT ISNULL(grade)
+    ) StuWithCouseID
+    ON Courses.id = StuWithCouseID.course_id
+    ORDER BY Student;
+</code></pre>
+<p><code>INNER JOIN</code> 给出了两张表在指定字段交集上的笛卡尔积，用某些关键字将表衔接起来，你可以认为 <code>INNER JOIN</code> 等价于</p>
+<pre><code class="language-mysql">results = []
+for record1 in TABLE1:
+    for record2 in TABLE2:
+        if P(record1, record2):
+            results += [record1.concat(record2)]
+return result
+</code></pre>
+<p>也就是选出两张表笛卡尔积中符合谓词 <code>P</code> 的记录集合，数据库在执行时并不是这样实现的</p>
+<p>因此上面的 <code>INNER JOIN</code> 可以隐式表达为</p>
+<pre><code class="language-mysql">SELECT Students.name, course_id, grade
+    FROM Students, Association
+    WHERE Students.id = Association.student_id AND NOT ISNULL(Association.grade);
+</code></pre>
+<pre><code class="language-mysql">SELECT Students.name student, Courses.title, Courses.credit, Association.grade
+    FROM Students, Courses, Association
+    WHERE Students.id = Association.student_id AND Courses.id = Association.course_id AND NOT ISNULL(Association.grade)
+    ORDER BY student;
+</code></pre>
+<p>对于 <code>INNER JOIN</code>，我们可以认为其与 <code>WHERE =</code> 获得的结果一样，但实现原理却并不相同，<code>JOIN</code> 时使用 <code>hashtable</code> 进行比较，而 <code>WHERE =</code> 则是取笛卡尔积再过滤（即上述 <code>Python</code> 表示的代码）。因此前者效率为 $O(logN)$，后者的效率为 $O(N^2)$</p>
+<p>除了 <code>INNER JOIN</code> 外还有其他的 <code>JOIN</code> 方式，例如我们想看看每位同学都选了几门课</p>
+<pre><code class="language-mysql">SELECT Students.sid, COUNT(Association.student_id)
+    FROM Students
+    INNER JOIN Association
+    ON Students.id = Association.student_id
+    GROUP BY Students.id;
+</code></pre>
+<p>结果发现第 50 名同学选了 <code>0</code> 门课并没有返回。这是因为 <code>INNER JOIN</code> 只返回至少存在一个匹配的记录。此时我们可以使用 <code>LEFT JOIN</code>，即无论是否存在匹配，都显示左侧表中的全部记录。对于不存在对应右表记录的左表记录，填充 <code>NULL</code></p>
+<pre><code class="language-mysql">SELECT Students.sid, COUNT(Association.student_id)
+    FROM Students
+    LEFT JOIN Association
+    ON Students.id = Association.student_id
+    GROUP BY Students.id;
+</code></pre>
+<p>这样就会显示全部学生</p>
+<h4 id="update">UPDATE</h4>
+<pre><code>UPDATE [LOW_PRIORITY] [IGNORE] table_reference
+    SET assignment_list
+    [WHERE where_condition]
+    [ORDER BY ...]
+    [LIMIT row_count]
+
+value:
+    {expr | DEFAULT}
+
+assignment:
+    col_name = value
+
+assignment_list:
+    assignment [, assignment] ...
+</code></pre>
+<p>例如我要更新 <code>History of Musical Theater</code> 课程的学分</p>
+<pre><code class="language-mysql">UPDATE Courses SET credit = 3 WHERE title = 'History of Musical Theater';
+</code></pre>
+<p><code>UPDATE</code> 过程中可以直接使用表中的值</p>
+<pre><code class="language-mysql">UPDATE Courses SET credit = credit + 1 WHERE title = 'History of Musical Theater';
+</code></pre>
+<h4 id="delete">DELETE</h4>
+<pre><code>-- Single-Table Syntax
+DELETE [LOW_PRIORITY] [QUICK] [IGNORE] FROM tbl_name [[AS] tbl_alias]
+    [PARTITION (partition_name [, partition_name] ...)]
+    [WHERE where_condition]
+    [ORDER BY ...]
+    [LIMIT row_count]
+
+-- Multiple-Table Syntax
+DELETE [LOW_PRIORITY] [QUICK] [IGNORE]
+    tbl_name[.*] [, tbl_name[.*]] ...
+    FROM table_references
+    [WHERE where_condition]
+
+DELETE [LOW_PRIORITY] [QUICK] [IGNORE]
+    FROM tbl_name[.*] [, tbl_name[.*]] ...
+    USING table_references
+    [WHERE where_condition]
+</code></pre>
+<p>删除 <code>History of Musical Theater</code> 课程的选课记录</p>
+<pre><code class="language-mysql">DELETE Association
+    FROM Association, Courses
+    WHERE Association.course_id = Courses.id AND Courses.title = 'History of Musical Theater';
+</code></pre>
+<p>在多表删除中，只有 <code>DELETE</code> 和 <code>FROM</code> 之间列举的表中的记录会被删除，<code>FROM</code> 后出现但是不再 <code>DELETE</code> 和 <code>FROM</code> 之间的表仅用作查询的参考</p>
+<p>值得注意的是删除并不会立即释放磁盘空间</p>
+<pre><code class="language-mysql">mysql&gt; SHOW TABLE STATUS LIKE 'Association';
++-------------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+--------------------+----------+----------------+---------+
+| Name        | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time
+| Update_time         | Check_time | Collation          | Checksum | Create_options | Comment |
++-------------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+--------------------+----------+----------------+---------+
+| Association | InnoDB |      10 | Dynamic    |  472 |            104 |       49152 |               0 |        32768 |         0 |            501 | 2023-07-16 15:43:21 | 2023-07-16 15:43:21 | NULL       | utf8mb4_0900_ai_ci |     NULL |
+|         |
++-------------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+--------------------+----------+----------------+---------+
+1 row in set (0.01 sec)
+</code></pre>
+<p>其中 <code>Data_length</code> 为数据文件的大小（以字节为单位），<code>Index_length</code> 为索引文件的大小（以字节为单位），<code>Data_length + Index_length</code> 表示表的总大小</p>
+<p>为了释放空间，我们可以使用</p>
+<pre><code class="language-mysql">OPTIMIZE TABLE Association;
+-- or
+ANALYZE TABLE Association;
+</code></pre>
+<h4 id="explain">EXPLAIN</h4>
+<p>你可能关心查询是如何被数据库执行的，这是可以使用 <code>EXPLAIN ANALYZE</code>，让 MySQL 打印执行计划，如</p>
+<pre><code class="language-mysql">EXPLAIN ANALYZE
+SELECT Students.sid, COUNT(Association.student_id)
+    FROM Students
+    LEFT JOIN Association
+    ON Students.id = Association.student_id
+    GROUP BY Students.id;
+</code></pre>
+<h4 id="sql-contraints">SQL Contraints</h4>
+<p>我们在前面看到的 <code>NOT NULL</code>, <code>UNIQUE</code>, <code>PRIMARY KEY</code>, <code>FOREIGN KEY</code> 等均为约束，用于对字段指定数据规则</p>
+<ul>
+<li><code>UNIQUE</code> 不只可以约束一列，也可以约束多列（联合唯一）</li>
+<li><code>DEFAULT</code> 约束可以用于指定默认值，用于插入时没有指定值得情况</li>
+</ul>
+<h2 id="sql-injection">三、SQL Injection</h2>
+<p>SQL 注入攻击是指攻击者在 web 应用程序中事先定义好的查询语句结尾上添加额外的恶意 SQL 语句。例如某程序中使用如下代码来判断用户输入的用户名密码是否正确</p>
+<pre><code># 用户登录
+def login_user(username, password):
+    db = connect_db()
+    get_user_query = f&quot;SELECT * FROM users WHERE username = '{username}' AND password = '{password}';&quot;
+    user = db.cursor().execute(get_user_query).fetchone()
+    return user is not None
+</code></pre>
+<p>正常情况下，我们输入错误密码时无法登录。然而由于 <code>--</code> 在 SQL 语句中表示注释，则当我们知道希望登录用户的用户名时，可以输入 <code>username="admin' --" &amp;&amp; password="Any"</code>，上述 SQL 语句便成为了</p>
+<pre><code class="language-mysql">SELECT * FROM users WHERE username = 'admin' --' AND password = 'Any';
+</code></pre>
+<p>实际上，我们不需要知道数据库中有哪些用户名，可以输入 <code>username="any' or 1=1 --" &amp;&amp; password="Any"</code>，上述 SQL 语句便成为了</p>
+<pre><code class="language-mysql">SELECT * FROM users WHERE username = 'any' or 1=1 --' AND password = 'Any';
+</code></pre>
+<p>因此，正确地使用 <code>PyMySQL</code> 会为你的输入进行自动转义，上述查询应写成这样</p>
+<pre><code class="language-python"># 用户登录
+def login_user(username, password):
+    db = connect_db()
+    get_user_query = f&quot;SELECT * FROM users WHERE username = %s AND password = %s;&quot;
+    user = db.cursor().execute(get_user_query, (username, password)).fetchone()
+    return user is not None
+</code></pre>
+<p>上面两条输入便会对应到</p>
+<pre><code class="language-mysql">SELECT * FROM users WHERE username = 'admin\' --' AND password = 'Any';
+SELECT * FROM users WHERE username = 'any\' or 1=1 --' AND password = 'Any';
+</code></pre>
+<h2 id="_16">四、参考资料</h2>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
