@@ -450,6 +450,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#alter" class="md-nav__link">
+    ALTER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop" class="md-nav__link">
+    DROP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    INSERT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    SELECT
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -671,6 +699,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#alter" class="md-nav__link">
+    ALTER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drop" class="md-nav__link">
+    DROP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#insert" class="md-nav__link">
+    INSERT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select" class="md-nav__link">
+    SELECT
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -815,7 +871,7 @@ Query OK, 1 row affected (0.02 sec)
 </ul>
 <h4 id="_10">日期/时间类型</h4>
 <ul>
-<li><strong>TIMESTAMP</strong>：时间戳，形式为 <code>YYYY-MM-DD hh:mm:ss</code>，4 bytes，范围为 $[1970−01−0100:00:01 UTC,2038−01−1903:14:07 UTC]$，常见的写法有</li>
+<li><strong>TIMESTAMP</strong>：时间戳，形式为 <code>YYYY-MM-DD hh:mm:ss</code>，4 bytes，范围为 [1970−01−0100:00:01 UTC, 2038−01−1903:14:07 UTC]，常见的写法有</li>
 </ul>
 <pre><code class="language-mysql">CREATE TABLE your_table (
     ...
@@ -853,6 +909,358 @@ USE summer;
 <ul>
 <li>创建课程概述中所述问题所需的数据表</li>
 </ul>
+<pre><code class="language-mysql">CREATE TABLE Students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sid CHAR(10) NOT NULL UNIQUE,
+    name VARCHAR(255) NOT NULL,
+    major VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cid VARCHAR(8) NOT NULL UNIQUE,
+    title VARCHAR(255) NOT NULL,
+    credit INT NOT NULL,
+    time VARCHAR(255)
+);
+
+CREATE TABLE Association (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    grade CHAR(2),
+    CONSTRAINT fk_student_id FOREIGN KEY (student_id) REFERENCES Students(id),
+    CONSTRAINT fk_course_id FOREIGN KEY (course_id) REFERENCES Courses(id)
+);
+</code></pre>
+<ul>
+<li>查看当前数据库中的所有数据表</li>
+</ul>
+<pre><code class="language-mysql">mysql&gt; SHOW TABLES;
++------------------+
+| Tables_in_summer |
++------------------+
+| Association      |
+| Courses          |
+| Students         |
++------------------+
+3 rows in set (0.00 sec)
+</code></pre>
+<ul>
+<li>可以用 <code>DESC</code> （Describe）语句查看表的字段情况</li>
+</ul>
+<pre><code class="language-mysql">mysql&gt; DESC Association;
++------------+---------+------+-----+---------+----------------+
+| Field      | Type    | Null | Key | Default | Extra          |
++------------+---------+------+-----+---------+----------------+
+| id         | int     | NO   | PRI | NULL    | auto_increment |
+| student_id | int     | YES  | MUL | NULL    |                |
+| course_id  | int     | YES  | MUL | NULL    |                |
+| grade      | char(2) | YES  |     | NULL    |                |
++------------+---------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+</code></pre>
+<h4 id="alter">ALTER</h4>
+<p><code>ALTER</code> 语句用于给数据表添加、删除字段，修改字段的类型或属性，如</p>
+<pre><code class="language-mysql">ALTER TABLE Students
+ADD gender VARCHAR(10); -- 添加字段
+
+ALTER TABLE Students
+DROP COLUMN gender; -- 删除字段
+
+ALTER TABLE Students
+MODIFY COLUMN sid CHAR(20); -- 修改字段
+
+ALTER TABLE Students
+ADD INDEX idx_sid (sid); -- 建立索引
+
+ALTER TABLE Association
+DROP FOREIGN KEY fk_student_id; -- 删除外键
+</code></pre>
+<h4 id="drop">DROP</h4>
+<p>删表与删库，如</p>
+<pre><code class="language-mysql">mysql&gt; DROP TABLE Students;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql&gt; DROP DATABASE summer;
+Query OK, 2 rows affected (0.03 sec)
+
+mysql&gt; SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| Hello              |
+| hello              |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+6 rows in set (0.00 sec)
+
+mysql&gt; SELECT DATABASE(); -- 查看当前位于的数据库名称， NULL 表示没有选择任何数据集
++------------+
+| DATABASE() |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)
+</code></pre>
+<h4 id="insert">INSERT</h4>
+<pre><code>INSERT [LOW_PRIORITY | DELAYED | HIGH_PRIORITY] [IGNORE]
+    [INTO] tbl_name
+    [PARTITION (partition_name [, partition_name] ...)]
+    [(col_name [, col_name] ...)]
+    { {VALUES | VALUE} (value_list) [, (value_list)] ... }
+    [AS row_alias[(col_alias [, col_alias] ...)]]
+    [ON DUPLICATE KEY UPDATE assignment_list]
+
+INSERT [LOW_PRIORITY | DELAYED | HIGH_PRIORITY] [IGNORE]
+    [INTO] tbl_name
+    [PARTITION (partition_name [, partition_name] ...)]
+    SET assignment_list
+    [AS row_alias[(col_alias [, col_alias] ...)]]
+    [ON DUPLICATE KEY UPDATE assignment_list]
+
+INSERT [LOW_PRIORITY | HIGH_PRIORITY] [IGNORE]
+    [INTO] tbl_name
+    [PARTITION (partition_name [, partition_name] ...)]
+    [(col_name [, col_name] ...)]
+    { SELECT ... 
+      | TABLE table_name 
+      | VALUES row_constructor_list
+    }
+    [ON DUPLICATE KEY UPDATE assignment_list]
+
+value:
+    {expr | DEFAULT}
+
+value_list:
+    value [, value] ...
+
+row_constructor_list:
+    ROW(value_list)[, ROW(value_list)][, ...]
+
+assignment:
+    col_name = 
+          value
+        | [row_alias.]col_name
+        | [tbl_name.]col_name
+        | [row_alias.]col_alias
+
+assignment_list:
+    assignment [, assignment] ...
+</code></pre>
+<p>假设我们已经创建了上述三张表，那么我们便可以使用 <code>INSERT INTO</code> 来向这些空表中插入数据</p>
+<pre><code class="language-mysql">INSERT INTO Students VALUES (0, '2023000000', 'Alice', 'Computer Science');
+</code></pre>
+<p>也可以指定字段名</p>
+<pre><code class="language-mysql">INSERT INTO Students (sid, name, major)
+VALUES ('2023000002', 'Bob', 'EE');
+</code></pre>
+<p>没有指定值得字段将默认被分配 <code>NULL</code> 或 <code>DEFAULT</code> 值，如果字段又 <code>NOT NULL</code> 属性，则会引发错误</p>
+<p>也可以一次性插入多条记录</p>
+<pre><code class="language-mysql">INSERT INTO Students (sid, name, major) VALUES
+('2023000003', 'Carol', 'CS'),
+('2023000004', 'Eve', 'CS');
+</code></pre>
+<blockquote>
+<p>为了我们后续的学习，我们可以插入一些预置</p>
+<p><code>mysql
+mysql&gt; DROP TABLE Association;
+mysql&gt; TRUNCATE TABLE Students; -- 清空 Students 数据表，重置自增变量
+mysql&gt; exit;</code></p>
+<p>在 shell 中执行</p>
+<p><code>shell
+curl -fsSL https://cloud.tsinghua.edu.cn/f/b8d1f041d9174890bc60/\?dl\=1 -o summer.sql</code></p>
+<p>然后进入 mysql 命令行</p>
+<p><code>mysql
+mysql&gt; USE summer;
+mysql&gt; source &lt;file path&gt;/summer.sql;</code></p>
+<p>若执行</p>
+<p><code>mysql
+mysql&gt; SELECT COUNT(*) from Students;
++----------+
+| COUNT(*) |
++----------+
+|       50 |
++----------+
+1 row in set (0.00 sec)</code></p>
+<p>则说明导入成功</p>
+</blockquote>
+<h4 id="select">SELECT</h4>
+<pre><code>SELECT
+    [ALL | DISTINCT | DISTINCTROW ]
+    [HIGH_PRIORITY]
+    [STRAIGHT_JOIN]
+    [SQL_SMALL_RESULT] [SQL_BIG_RESULT] [SQL_BUFFER_RESULT]
+    [SQL_NO_CACHE] [SQL_CALC_FOUND_ROWS]
+    select_expr [, select_expr] ...
+    [into_option]
+    [FROM table_references
+      [PARTITION partition_list]]
+    [WHERE where_condition]
+    [GROUP BY {col_name | expr | position}, ... [WITH ROLLUP]]
+    [HAVING where_condition]
+    [WINDOW window_name AS (window_spec)
+        [, window_name AS (window_spec)] ...]
+    [ORDER BY {col_name | expr | position}
+      [ASC | DESC], ... [WITH ROLLUP]]
+    [LIMIT {[offset,] row_count | row_count OFFSET offset}]
+    [into_option]
+    [FOR {UPDATE | SHARE}
+        [OF tbl_name [, tbl_name] ...]
+        [NOWAIT | SKIP LOCKED]
+      | LOCK IN SHARE MODE]
+    [into_option]
+
+into_option: {
+    INTO OUTFILE 'file_name'
+        [CHARACTER SET charset_name]
+        export_options
+  | INTO DUMPFILE 'file_name'
+  | INTO var_name [, var_name] ...
+}
+</code></pre>
+<ul>
+<li>暴力地取出整张表</li>
+</ul>
+<pre><code class="language-mysql">SELECT * FROM Courses;
+</code></pre>
+<p>在生产环境中使用该操作应谨慎，因为若记录特别多或某个字段特别长，这将消耗大量的网络传输和内存消耗，且可能出现数据暴露等问题</p>
+<ul>
+<li>查看指定的列</li>
+</ul>
+<pre><code class="language-mysql">SELECT id, title, credit FROM Courses;
+</code></pre>
+<ul>
+<li>可以使用 <code>WHERE</code> 进行筛选</li>
+</ul>
+<pre><code class="language-mysql">SELECT * FROM Courses WHERE time = '2023-Spring' AND credit &gt; 1;
+</code></pre>
+<p>显示所有开课时间为 2023-Spring 且学分大于 1 的课程</p>
+<ul>
+<li>在使用 <code>WHERE</code> 进行过滤时可以指定范围</li>
+</ul>
+<pre><code class="language-mysql">SELECT * FROM Courses WHERE credit IN (1, 2);
+</code></pre>
+<p>显示学分为 1 或 2 的课程</p>
+<ul>
+<li>可以使用 <code>LIKE</code> 进行模糊匹配</li>
+</ul>
+<pre><code class="language-mysql">SELECT * FROM Courses WHERE time LIKE '2022%';
+</code></pre>
+<p>显示所有上课时间在 2022 年的课程</p>
+<ul>
+<li>可以使用 <code>ISNULL</code> 来查找某个字段没有数据的记录</li>
+</ul>
+<pre><code class="language-mysql">SELECT * FROM Association WHERE ISNULL(grade);
+</code></pre>
+<p>显示所有没有登记分数的选课记录</p>
+<p>注意不能使用 <code>grade = NULL</code> 来判断是否为 <code>NULL</code></p>
+<p>判断非空可以使用 <code>NOT INSULL(&lt;column_name&gt;)</code></p>
+<ul>
+<li>查看共有多少条记录</li>
+</ul>
+<pre><code class="language-mysql">SELECT COUNT(*) FROM Association;
+</code></pre>
+<p>类似的可以查看最大值 <code>MAX</code> ，最小值 <code>MIN</code> ，合 <code>SUM</code> ，平均值 <code>AVG</code> </p>
+<ul>
+<li>根据一个或多个列对结果集进行分组</li>
+</ul>
+<pre><code class="language-mysql">mysql&gt; SELECT grade, COUNT(*) FROM Association GROUP BY grade;
++-------+----------+
+| grade | COUNT(*) |
++-------+----------+
+| NULL  |      236 |
+| F     |       27 |
+| C     |       16 |
+| D     |       19 |
+| B+    |       18 |
+| C+    |       18 |
+| A-    |       24 |
+| C-    |       26 |
+| A+    |       25 |
+| D+    |       18 |
+| A     |       14 |
+| B     |       11 |
+| B-    |       20 |
++-------+----------+
+13 rows in set (0.00 sec)
+</code></pre>
+<p>显示在所有课程中不同的等级分别有多少人</p>
+<p>在查询中，我们可以给字段、表、和查询赋予一个临时的，仅在这次查询中使用的名称</p>
+<p>例如对于上面的查询，我们给 <code>COUNT(*)</code> 一个临时名称 <code>student_count</code></p>
+<pre><code class="language-mysql">mysql&gt; SELECT grade, COUNT(*) student_count FROM Association GROUP BY grade;
++-------+---------------+
+| grade | student_count |
++-------+---------------+
+| NULL  |           236 |
+| F     |            27 |
+| C     |            16 |
+| D     |            19 |
+| B+    |            18 |
+| C+    |            18 |
+| A-    |            24 |
+| C-    |            26 |
+| A+    |            25 |
+| D+    |            18 |
+| A     |            14 |
+| B     |            11 |
+| B-    |            20 |
++-------+---------------+
+13 rows in set (0.00 sec)
+</code></pre>
+<p>在 <code>GROUP BY</code> 时，你通常不能选择没有受到 <code>GROUP BY</code> 修饰的字段</p>
+<ul>
+<li>对聚合算子的结果进行过滤</li>
+</ul>
+<pre><code class="language-mysql">mysql&gt; SELECT grade, COUNT(*) FROM Association GROUP BY grade HAVING COUNT(*) &gt; 20;
++-------+----------+
+| grade | COUNT(*) |
++-------+----------+
+| NULL  |      236 |
+| F     |       27 |
+| A-    |       24 |
+| C-    |       26 |
+| A+    |       25 |
++-------+----------+
+5 rows in set (0.00 sec)
+</code></pre>
+<ul>
+<li>对查询结果排序</li>
+</ul>
+<pre><code class="language-mysql">SELECT title, credit FROM Courses ORDER BY credit;
+</code></pre>
+<p>显示对课程的学分进行排序的结果</p>
+<p>默认结果为升序，我们也可以规定降序</p>
+<pre><code class="language-mysql">SELECT title, credit FROM Courses ORDER BY credit DESC;
+</code></pre>
+<p>也可以对多个字段排序</p>
+<pre><code class="language-mysql">SELECT title, credit FROM Courses ORDER BY credit DESC, title ASC;
+</code></pre>
+<p>显示优先按照学分降序，再按照课程名升序的结果</p>
+<p>也可以对 <code>GROUP BY</code> 的结果排序</p>
+<pre><code class="language-mysql">mysql&gt; SELECT grade, COUNT(*) student_count FROM Association GROUP BY grade ORDER BY student_count;
++-------+---------------+
+| grade | student_count |
++-------+---------------+
+| B     |            11 |
+| A     |            14 |
+| C     |            16 |
+| B+    |            18 |
+| C+    |            18 |
+| D+    |            18 |
+| D     |            19 |
+| B-    |            20 |
+| A-    |            24 |
+| A+    |            25 |
+| C-    |            26 |
+| F     |            27 |
+| NULL  |           236 |
++-------+---------------+
+13 rows in set (0.00 sec)
+</code></pre>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });
