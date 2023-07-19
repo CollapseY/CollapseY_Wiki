@@ -995,7 +995,7 @@ chmod<span class="w"> </span>o-rw<span class="w"> </span>journal.txt<span class=
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>man<span class="w"> </span>&lt;command-name&gt;
 </code></pre></div></td></tr></table></div>
 <p><code>man</code> 指令是了解各种指令具体用法的最快途径，绝大多数的指令和软件都会有对应的Manual提供查看，在里面你可以看到指令的名称来源、作者、描述和用法等等</p>
-<p><code>man</code> 所打开的界面支持多种浏览方式，Vim 的J/K、方向键、回车键、翻页键等都可以使用，并且支持搜索功能</p>
+<p><code>man</code> 所打开的界面支持多种浏览方式，Vim的J/K、方向键、回车键、翻页键等都可以使用，并且支持搜索功能</p>
 <p>比如我们想了解 <code>ls</code> 的 <code>-h</code> 选项的作用，可以在 <code>man ls</code> 中输入 <code>/-h</code> 并回车，搜索到的 <code>-h</code> 选项就会高亮显示，继续回车找到下一个结果。<code>/</code> 是向后搜索，而 <code>?</code> 是向前搜索</p>
 <p>如果你想查看帮助的软件凑巧没有对应的Manual，你总可以试试在指令名后加上 <code>-h / --help</code> 选项，通常来说命令输出错误时它就会有Usage的提示</p>
 <p>类似的软件还有tldr(too long; didn't read)、cheat(cheatsheet)、fuck等，它们是精简版的man，提供了指令的常见用法</p>
@@ -1005,7 +1005,7 @@ chmod<span class="w"> </span>o-rw<span class="w"> </span>journal.txt<span class=
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ssh<span class="w"> </span>foobar@server<span class="w"> </span><span class="o">[</span>command<span class="o">]</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="_8">拷贝文件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p><code>scp</code> 指令可以从远程拷贝文件到本地/从本地拷贝文件到远程，基本格式是 <code>scp &lt;from&gt; &lt;to&gt;</code>。如果要拷贝一个文件夹，应该使用flag <code>-r</code> 表示递归深入目录。</p>
+<p><code>scp</code> 指令可以从远程拷贝文件到本地/从本地拷贝文件到远程，基本格式是 <code>scp &lt;from&gt; &lt;to&gt;</code>。如果要拷贝一个文件夹，应该使用flag <code>-r</code> 表示递归深入目录</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
@@ -1051,7 +1051,7 @@ scp<span class="w"> </span>sast:~/data.csv<span class="w"> </span>.<span class="
 <h2 id="basic-tools">Basic Tools<a class="headerlink" href="#basic-tools" title="Permanent link">&para;</a></h2>
 <h3 id="_10">软件包管理器<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p><strong>软件包管理系统</strong>是在电脑中自动安装、配置、卸载和升级软件包的工作组合。使用软件包管理系统可以大大简化在Linux发行版中安装软件的流程。常见的软件包有两种类型：deb软件包（由dpkg和它的前端apt管理，使用于Debian、Ubuntu）和RPM软件包（由dnf、yum、ZYpp等前端管理）</p>
-<p>绝大多数的Linux发行版或类Unix系统都有它的包管理器，Ubuntu 有 <code>apt</code>，Arch Linux 有 <code>pacman</code>，macOS 有 <code>Homebrew</code></p>
+<p>绝大多数的Linux发行版或类Unix系统都有它的包管理器，Ubuntu有 <code>apt</code>，Arch Linux有 <code>pacman</code>，macOS有 <code>Homebrew</code></p>
 <p>包管理器的指令一般都很符合直观，如果失败了可以通过 <code>man</code> 或者 <code>help</code> 查看用法</p>
 <p>系统中包管理器所使用的仓库往往默认位于国外，这使得每次从仓库拉取东西时耗费很长时间或者甚至连不上。好在我们国内有许多的镜像源，比如清华的TUNA，访问 <a href="https://mirrors.tuna.tsinghua.edu.cn/help">https://mirrors.tuna.tsinghua.edu.cn/help</a> 可以找到Ubuntu在内的各种仓库镜像源配置方法</p>
 <p>Homebrew的安装方法：</p>
