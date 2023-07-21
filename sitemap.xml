@@ -2,22 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://collapsey.github.io/CollapseY_Wiki/</loc>
-         <lastmod>2023-07-19</lastmod>
+         <lastmod>2023-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://collapsey.github.io/CollapseY_Wiki/Linux/</loc>
-         <lastmod>2023-07-19</lastmod>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/CP/Codeforces/Educational%20Codeforces%20Round%20148%20%28Rated%20for%20Div.%202%29/</loc>
+         <lastmod>2023-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://collapsey.github.io/CollapseY_Wiki/Python/</loc>
-         <lastmod>2023-07-19</lastmod>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/CS/Linux/</loc>
+         <lastmod>2023-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://collapsey.github.io/CollapseY_Wiki/SQL/</loc>
-         <lastmod>2023-07-19</lastmod>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/CS/Python/</loc>
+         <lastmod>2023-07-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/CS/SQL/</loc>
+         <lastmod>2023-07-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
