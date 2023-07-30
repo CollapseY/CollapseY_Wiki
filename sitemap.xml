@@ -2,42 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://collapsey.github.io/CollapseY_Wiki/</loc>
-         <lastmod>2023-07-27</lastmod>
+         <lastmod>2023-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://collapsey.github.io/CollapseY_Wiki/CP/Contents/</loc>
-         <lastmod>2023-07-27</lastmod>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/Algorithm%20Competitions/Contents/</loc>
+         <lastmod>2023-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://collapsey.github.io/CollapseY_Wiki/CP/Codeforces/Codeforces%20Round%20881%20%28Div.%203%29/</loc>
-         <lastmod>2023-07-27</lastmod>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/Algorithm%20Competitions/Codeforces/Codeforces%20Round%20881%20%28Div.%203%29/</loc>
+         <lastmod>2023-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://collapsey.github.io/CollapseY_Wiki/CP/Codeforces/Codeforces%20Round%20886%20%28Div.%204%29/</loc>
-         <lastmod>2023-07-27</lastmod>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/Algorithm%20Competitions/Codeforces/Codeforces%20Round%20886%20%28Div.%204%29/</loc>
+         <lastmod>2023-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://collapsey.github.io/CollapseY_Wiki/CP/Codeforces/Educational%20Codeforces%20Round%20148%20%28Rated%20for%20Div.%202%29/</loc>
-         <lastmod>2023-07-27</lastmod>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/Algorithm%20Competitions/Codeforces/Codeforces%20Round%20888%20%28Div.%203%29/</loc>
+         <lastmod>2023-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://collapsey.github.io/CollapseY_Wiki/CS/Linux/</loc>
-         <lastmod>2023-07-27</lastmod>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/Algorithm%20Competitions/Codeforces/Educational%20Codeforces%20Round%20148%20%28Rated%20for%20Div.%202%29/</loc>
+         <lastmod>2023-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://collapsey.github.io/CollapseY_Wiki/CS/Python/</loc>
-         <lastmod>2023-07-27</lastmod>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/Computer%20Science%20and%20Technology/Django/</loc>
+         <lastmod>2023-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://collapsey.github.io/CollapseY_Wiki/CS/SQL/</loc>
-         <lastmod>2023-07-27</lastmod>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/Computer%20Science%20and%20Technology/Linux/</loc>
+         <lastmod>2023-07-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/Computer%20Science%20and%20Technology/Python/</loc>
+         <lastmod>2023-07-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/Computer%20Science%20and%20Technology/SQL/</loc>
+         <lastmod>2023-07-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://collapsey.github.io/CollapseY_Wiki/Data%20Structures%20and%20Algorithms/DAG/</loc>
+         <lastmod>2023-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
